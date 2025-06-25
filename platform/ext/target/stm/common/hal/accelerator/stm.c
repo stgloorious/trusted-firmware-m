@@ -14,6 +14,8 @@
 extern int se_st_engine_init(void);/* fixme include se api.h */
 #endif
 
+foobar
+
 /*
  * \brief Initialize the stm crypto accelerator
  */

@@ -552,14 +552,14 @@ static int32_t Flash_EraseSector(uint32_t addr)
 #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
   if (is_range_secure(&ARM_FLASH0_DEV, addr, 4))
   {
-#if defined(STM32H573xx)
+#if defined(STM32H573xx) || defined(STM32H563xx)
     EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;
 #else
     EraseInit.TypeErase = FLASH_TYPEERASE_PAGES;
 #endif
   }
   else
-#if defined(STM32H573xx)
+#if defined(STM32H573xx) || defined(STM32H563xx)
     EraseInit.TypeErase = FLASH_TYPEERASE_SECTORS_NS;
 #else
     EraseInit.TypeErase = FLASH_TYPEERASE_PAGES_NS;
@@ -571,12 +571,12 @@ static int32_t Flash_EraseSector(uint32_t addr)
   /*  flash size in  DB256K in OPTR */
   EraseInit.Banks = bank_number(&ARM_FLASH0_DEV, addr);
 
-#if defined(STM32H573xx)
+#if defined(STM32H573xx) || defined(STM32H563xx)
     EraseInit.NbSectors = FLASH0_SECTOR_SIZE / FLASH_SECTOR_SIZE;
 #else
     EraseInit.NbPages = FLASH0_SECTOR_SIZE / FLASH_PAGE_SIZE;
 #endif
-#if defined(STM32H573xx)
+#if defined(STM32H573xx) || defined(STM32H563xx)
     EraseInit.Sector = page_number(&ARM_FLASH0_DEV, addr);
 #else
     EraseInit.Page = page_number(&ARM_FLASH0_DEV, addr);

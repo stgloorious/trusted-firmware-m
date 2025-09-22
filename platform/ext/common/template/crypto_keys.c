@@ -50,6 +50,12 @@ static enum tfm_plat_err_t tfm_plat_get_huk(const void *ctx,
     *algorithm = PSA_ALG_HKDF(PSA_ALG_SHA_256);
     *type = PSA_KEY_TYPE_DERIVE;
 
+    printf("huk(len=%u):", *key_len);
+    for (int i = 0; i < *key_len; i++){
+        printf("%x:", buf[i]);
+    }
+    printf("\r\n");
+
     return TFM_PLAT_ERR_SUCCESS;
 }
 

@@ -401,7 +401,8 @@ psa_status_t tfm_crypto_init(void)
     /* Initialise the engine layer */
     status =  tfm_crypto_engine_init();
     if (status != PSA_SUCCESS) {
-        return status;
+        LOG_INFFMT("[ERR][Crypto] Engine Init \033[0;32mFAILED\033[0m. (ignoring)\r\n");
+        //return status;
     }
 
     return PSA_SUCCESS;

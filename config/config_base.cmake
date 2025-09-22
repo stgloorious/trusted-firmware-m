@@ -78,8 +78,8 @@ set(TFM_EXTRA_CONFIG_PATH               ""          CACHE PATH      "Path to ext
 set(TFM_MANIFEST_LIST                   ${CMAKE_SOURCE_DIR}/tools/tfm_manifest_list.yaml CACHE FILEPATH "TF-M native Secure Partition manifests list file")
 
 set(TFM_CODE_SHARING                    OFF         CACHE PATH      "Enable code sharing between MCUboot and secure firmware")
-set(CONFIG_TFM_BOOT_STORE_MEASUREMENTS  ON          CACHE BOOL      "Store measurement values from all the boot stages. Used for initial attestation token.")
-set(CONFIG_TFM_BOOT_STORE_ENCODED_MEASUREMENTS  ON  CACHE BOOL      "Enable storing of encoded measurements in boot.")
+set(CONFIG_TFM_BOOT_STORE_MEASUREMENTS  OFF          CACHE BOOL      "Store measurement values from all the boot stages. Used for initial attestation token.")
+set(CONFIG_TFM_BOOT_STORE_ENCODED_MEASUREMENTS  OFF  CACHE BOOL      "Enable storing of encoded measurements in boot.")
 
 set(TFM_PXN_ENABLE                      OFF         CACHE BOOL      "Use Privileged execute never (PXN)")
 
